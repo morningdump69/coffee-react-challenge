@@ -20,14 +20,15 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   color: #C26100;
   font-family: "Lacquer";
 }
 
 .completed-orders {
   position: absolute;
-  top: 170px;
+  top: 194px;
   background-color: black;
 }
 .orders {
