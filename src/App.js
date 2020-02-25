@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import "./CSS/App.css"
+import "./CSS/App.css";
 import NameInput from "./components/NameInput";
 import CurrentOrder from "./components/CurrentOrder";
 import CoffeeInput from "./components/CoffeeInput";
 import SizeInput from "./components/SizeInput";
-console.log("hello")
-
-
 
 class App extends Component {
   state = {
@@ -135,7 +132,12 @@ class App extends Component {
             return (
               <div className="orders">
                 <h2>{order}</h2>
-                <button className="delete" onClick={() => this.orderDelete(index)}>x</button>
+                <button
+                  className="delete"
+                  onClick={() => this.orderDelete(index)}
+                >
+                  x
+                </button>
               </div>
             );
           })}
