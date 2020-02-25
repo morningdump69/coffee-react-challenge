@@ -1,12 +1,14 @@
 .container {
   position: relative;
   width: 400px;
-  height: 700px;
+  height: 100%px;
   background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+
 @import url("https://fonts.googleapis.com/css?family=Lacquer&display=swap");
 
 body {
@@ -26,6 +28,7 @@ h2 {
 .completed-orders {
   position: absolute;
   top: 170px;
+  background-color: black;
 }
 .orders {
   display: flex;
