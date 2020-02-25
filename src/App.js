@@ -4,6 +4,7 @@ import NameInput from "./components/NameInput";
 import CurrentOrder from "./components/CurrentOrder";
 import CoffeeInput from "./components/CoffeeInput";
 import SizeInput from "./components/SizeInput";
+import CompOrders from "./components/CompOrders";
 
 class App extends Component {
   state = {
@@ -127,21 +128,7 @@ class App extends Component {
             Click to choose random name from orders
           </h3>
         )}
-        <div className="completed-orders">
-          {this.state.orders.map((order, index) => {
-            return (
-              <div className="orders">
-                <h2>{order}</h2>
-                <button
-                  className="delete"
-                  onClick={() => this.orderDelete(index)}
-                >
-                  x
-                </button>
-              </div>
-            );
-          })}
-        </div>
+        <CompOrders orders={this.state.orders} orderDelete={this.orderDelete} />
       </div>
     );
   }
