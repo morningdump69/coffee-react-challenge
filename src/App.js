@@ -127,7 +127,7 @@ class App extends Component {
           <h3>{this.state.randomName}</h3>
         ) : (
           <h3 onClick={() => this.handleRandomName()}>
-            Click to choose random name from order list
+            Click to choose random name from orders
           </h3>
         )}
         <div className="completed-orders">
