@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.2edfcce9.chunk.css",
-    "main.js": "/static/js/main.bdc49ecb.chunk.js",
-    "main.js.map": "/static/js/main.bdc49ecb.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.6799207f.js",
-    "runtime-main.js.map": "/static/js/runtime-main.6799207f.js.map",
-    "static/js/2.fd87875a.chunk.js": "/static/js/2.fd87875a.chunk.js",
-    "static/js/2.fd87875a.chunk.js.map": "/static/js/2.fd87875a.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.115da0c7766891fda1818c140faa16a9.js": "/precache-manifest.115da0c7766891fda1818c140faa16a9.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.2edfcce9.chunk.css.map": "/static/css/main.2edfcce9.chunk.css.map",
-    "static/js/2.fd87875a.chunk.js.LICENSE.txt": "/static/js/2.fd87875a.chunk.js.LICENSE.txt"
+    "main.css": "/coffee-react-challenge/static/css/main.2edfcce9.chunk.css",
+    "main.js": "/coffee-react-challenge/static/js/main.c65ca63e.chunk.js",
+    "main.js.map": "/coffee-react-challenge/static/js/main.c65ca63e.chunk.js.map",
+    "runtime-main.js": "/coffee-react-challenge/static/js/runtime-main.66c7c556.js",
+    "runtime-main.js.map": "/coffee-react-challenge/static/js/runtime-main.66c7c556.js.map",
+    "static/js/2.fd87875a.chunk.js": "/coffee-react-challenge/static/js/2.fd87875a.chunk.js",
+    "static/js/2.fd87875a.chunk.js.map": "/coffee-react-challenge/static/js/2.fd87875a.chunk.js.map",
+    "index.html": "/coffee-react-challenge/index.html",
+    "precache-manifest.0b956f7a814cd6255c1160d4f6f739c0.js": "/coffee-react-challenge/precache-manifest.0b956f7a814cd6255c1160d4f6f739c0.js",
+    "service-worker.js": "/coffee-react-challenge/service-worker.js",
+    "static/css/main.2edfcce9.chunk.css.map": "/coffee-react-challenge/static/css/main.2edfcce9.chunk.css.map",
+    "static/js/2.fd87875a.chunk.js.LICENSE.txt": "/coffee-react-challenge/static/js/2.fd87875a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.6799207f.js",
+    "static/js/runtime-main.66c7c556.js",
     "static/js/2.fd87875a.chunk.js",
     "static/css/main.2edfcce9.chunk.css",
-    "static/js/main.bdc49ecb.chunk.js"
+    "static/js/main.c65ca63e.chunk.js"
   ]
 }
