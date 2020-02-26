@@ -8,7 +8,10 @@ const CompOrders = props => {
         return (
           <div className="orders">
             <h2>{order}</h2>
-            <button className="delete" onClick={() => props.orderDelete(index)}>
+            <button
+              className={props.deleteClass}
+              onClick={() => props.orderDelete(index)}
+            >
               x
             </button>
           </div>
