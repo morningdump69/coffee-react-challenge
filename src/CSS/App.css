@@ -28,7 +28,6 @@ h3 {
 .completed-orders {
   position: absolute;
   top: 194px;
-  right: 0.5px;
   width: 400px;
   background-color: black;
   justify-content: center;
