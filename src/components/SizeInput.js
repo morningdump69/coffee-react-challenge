@@ -1,5 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
 import "../CSS/Submit.css";
 
 const SizeInput = props => {
@@ -22,17 +21,6 @@ const SizeInput = props => {
       <button className="Submit" onClick={props.handleSizeSubmit}>
         Add Size
       </button>
-=======
-
-const SizeInput = props => {
-  return (
-    <div>
-      <input
-        type="text"
-        onChange={event => props.handleSizeInput(event)}
-      ></input>
-      <button onClick={props.handleSizeSubmit}>Add Size</button>
->>>>>>> 51c3a0b8f46b618258522520ead15ac29b873a1b
     </div>
   );
 };

@@ -11,7 +11,6 @@ const NameInput = props => {
   return (
     <div>
       <input
-<<<<<<< HEAD
         className="input"
         placeholder="Input Name Here"
         autoFocus
@@ -22,12 +21,6 @@ const NameInput = props => {
       <button className="Submit" onClick={props.handleNameSubmit}>
         Add Name
       </button>
-=======
-        type="text"
-        onChange={event => props.handleNameInput(event)}
-      ></input>
-      <button onClick={props.handleNameSubmit}>Add Name</button>
->>>>>>> 51c3a0b8f46b618258522520ead15ac29b873a1b
     </div>
   );
 };
