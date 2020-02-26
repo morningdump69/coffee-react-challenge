@@ -11,6 +11,7 @@ const CoffeeInput = props => {
   return (
     <div>
       <input
+<<<<<<< HEAD
         className="input"
         placeholder="Input coffee Here"
         autoFocus
@@ -21,6 +22,12 @@ const CoffeeInput = props => {
       <button className="Submit" onClick={props.handleCoffeeSubmit}>
         Add Coffee
       </button>
+=======
+        type="text"
+        onChange={event => props.handleCoffeeInput(event)}
+      ></input>
+      <button onClick={props.handleCoffeeSubmit}>Add Coffee</button>
+>>>>>>> 51c3a0b8f46b618258522520ead15ac29b873a1b
     </div>
   );
 };
