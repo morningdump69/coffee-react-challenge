@@ -11,6 +11,7 @@ const SizeInput = props => {
   return (
     <div>
       <input
+        className="input"
         placeholder="Input Size Here"
         autoFocus
         type="text"
