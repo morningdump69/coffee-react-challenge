@@ -11,6 +11,7 @@ const CoffeeInput = props => {
   return (
     <div>
       <input
+        className="input"
         placeholder="Input coffee Here"
         autoFocus
         type="text"
