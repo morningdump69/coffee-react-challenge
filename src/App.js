@@ -125,7 +125,9 @@ class App extends Component {
       <div className="container">
         <h1>Who wants coffee?</h1>
         {this.state.endGame ? (
-          <button onClick={this.handleReset}>Reset Order Form</button>
+          <button className="Reset" onClick={this.handleReset}>
+            Reset
+          </button>
         ) : (
           this.state.showNameInput && (
             <NameInput
