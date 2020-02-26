@@ -102,15 +102,29 @@ class App extends Component {
     });
   };
 
+  handleReset = () => {
+    let resetOrders = [];
+    this.setState({
+      orders: resetOrders,
+      randomNameShow: false,
+      randomName: "",
+      endGame: false
+    });
+  };
+
   render() {
     return (
       <div className="container">
         <h1>Who wants coffee?</h1>
-        {this.state.showNameInput && (
-          <NameInput
-            handleNameInput={this.handleNameInput}
-            handleNameSubmit={this.handleNameSubmit}
-          />
+        {this.state.endGame ? (
+          <button onClick={this.handleReset}>Reset Order Form</button>
+        ) : (
+          this.state.showNameInput && (
+            <NameInput
+              handleNameInput={this.handleNameInput}
+              handleNameSubmit={this.handleNameSubmit}
+            />
+          )
         )}
         {this.state.showSizeInput && (
           <SizeInput
