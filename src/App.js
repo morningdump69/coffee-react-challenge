@@ -20,7 +20,8 @@ class App extends Component {
     randomNameShow: false,
     randomName: "",
     endGame: false,
-    roulette: false
+    roulette: false,
+    deleteClass: "delete"
   };
 
   componentDidUpdate() {
@@ -105,7 +106,8 @@ class App extends Component {
     this.setState({
       randomName: randomNameGen,
       randomNameShow: true,
-      endGame: true
+      endGame: true,
+      deleteClass: "hidedelete"
     });
   };
 
@@ -116,7 +118,8 @@ class App extends Component {
       randomNameShow: false,
       randomName: "",
       endGame: false,
-      roulette: false
+      roulette: false,
+      deleteClass: "delete"
     });
   };
 
@@ -149,7 +152,11 @@ class App extends Component {
           />
         )}
         <CurrentOrder currentOrder={this.state.currentOrder} />
-        <CompOrders orders={this.state.orders} orderDelete={this.orderDelete} />
+        <CompOrders
+          orders={this.state.orders}
+          orderDelete={this.orderDelete}
+          deleteClass={this.state.deleteClass}
+        />
 
         {this.state.roulette ? (
           this.state.randomNameShow ? (
