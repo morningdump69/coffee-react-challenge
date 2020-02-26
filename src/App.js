@@ -4,6 +4,7 @@ import NameInput from "./components/NameInput";
 import CurrentOrder from "./components/CurrentOrder";
 import CoffeeInput from "./components/CoffeeInput";
 import SizeInput from "./components/SizeInput";
+import CompOrders from "./components/CompOrders";
 
 class App extends Component {
   state = {
@@ -15,8 +16,19 @@ class App extends Component {
     orderNames: [],
     showNameInput: true,
     showSizeInput: false,
-    showCoffeeInput: false
+    showCoffeeInput: false,
+    randomNameShow: false,
+    randomName: "",
+    endGame: false,
+    roulette: false,
+    deleteClass: "delete"
   };
+
+  componentDidUpdate() {
+    if (this.state.orders.length >= 2 && this.state.roulette === false) {
+      this.setState({ roulette: true });
+    }
+  }
 
   handleNameInput = event => {
     let capName = event.target.value.toUpperCase();
@@ -24,7 +36,7 @@ class App extends Component {
   };
 
   handleSizeInput = event => {
-    this.setState({ currentSize: ` would like a ${event.target.value},` });
+    this.setState({ currentSize: ` would like a ${event.target.value}, ` });
   };
 
   handleCoffeeInput = event => {
@@ -32,25 +44,29 @@ class App extends Component {
   };
 
   handleNameSubmit = () => {
-    this.setState({
-      currentOrder: this.state.currentName,
-      showNameInput: false,
-      showSizeInput: true,
-      showCoffeeInput: false
-    });
+    if (this.state.endGame !== true) {
+      let names = [...this.state.orderNames];
+      let newName = this.state.currentName;
+      names.push(newName);
+      this.setState({
+        currentOrder: newName,
+        orderNames: names,
+        showNameInput: false,
+        showSizeInput: true,
+        showCoffeeInput: false
+      });
+    }
   };
 
   handleSizeSubmit = () => {
     let order = this.state.currentOrder;
     let cSize = this.state.currentSize;
     let afterOrder = order + cSize;
-    let ordersArray = [...this.state.orders];
-    ordersArray.push(afterOrder);
     this.setState({
       showNameInput: false,
       showSizeInput: false,
       showCoffeeInput: true,
-      currentOrder: order
+      currentOrder: afterOrder
     });
   };
 
@@ -72,18 +88,56 @@ class App extends Component {
   };
 
   orderDelete = index => {
-    this.setState(this.state.orders.splice(index, 1));
+    let newOrders = [...this.state.orders];
+    let newOrderNames = [...this.state.orderNames];
+    newOrders.splice(index, 1);
+    newOrderNames.splice(index, 1);
+    this.setState({
+      orders: newOrders,
+      orderNames: newOrderNames
+    });
+  };
+
+  handleRandomName = () => {
+    let randomNameNumGen = Math.floor(
+      Math.random() * this.state.orderNames.length
+    );
+    let randomNameGen = this.state.orderNames[randomNameNumGen];
+    this.setState({
+      randomName: randomNameGen,
+      randomNameShow: true,
+      endGame: true,
+      deleteClass: "hidedelete"
+    });
+  };
+
+  handleReset = () => {
+    let resetOrders = [];
+    this.setState({
+      orders: resetOrders,
+      randomNameShow: false,
+      randomName: "",
+      endGame: false,
+      roulette: false,
+      deleteClass: "delete"
+    });
   };
 
   render() {
     return (
       <div className="container">
         <h1>Who wants coffee?</h1>
-        {this.state.showNameInput && (
-          <NameInput
-            handleNameInput={this.handleNameInput}
-            handleNameSubmit={this.handleNameSubmit}
-          />
+        {this.state.endGame ? (
+          <button className="Reset" onClick={this.handleReset}>
+            Reset
+          </button>
+        ) : (
+          this.state.showNameInput && (
+            <NameInput
+              handleNameInput={this.handleNameInput}
+              handleNameSubmit={this.handleNameSubmit}
+            />
+          )
         )}
         {this.state.showSizeInput && (
           <SizeInput
@@ -97,18 +151,24 @@ class App extends Component {
             handleCoffeeSubmit={this.handleCoffeeSubmit}
           />
         )}
-
         <CurrentOrder currentOrder={this.state.currentOrder} />
-        <div className="completed-orders">
-          {this.state.orders.map((order, index) => {
-            return (
-              <div className="orders">
-                <h2>{order}</h2>
-                <button onClick={() => this.orderDelete(index)}>x</button>
-              </div>
-            );
-          })}
-        </div>
+        <CompOrders
+          orders={this.state.orders}
+          orderDelete={this.orderDelete}
+          deleteClass={this.state.deleteClass}
+        />
+
+        {this.state.roulette ? (
+          this.state.randomNameShow ? (
+            <h3>{`${this.state.randomName} pays`}</h3>
+          ) : (
+            <h3 onClick={() => this.handleRandomName()}>
+              Click to end order and choose who pays
+            </h3>
+          )
+        ) : (
+          <h3>Add atleast 2 orders for roulette</h3>
+        )}
       </div>
     );
   }
