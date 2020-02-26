@@ -18,7 +18,8 @@ class App extends Component {
     showSizeInput: false,
     showCoffeeInput: false,
     randomNameShow: false,
-    randomName: ""
+    randomName: "",
+    endGame: false
   };
 
   handleNameInput = event => {
@@ -35,16 +36,18 @@ class App extends Component {
   };
 
   handleNameSubmit = () => {
-    let names = [...this.state.orderNames];
-    let newName = this.state.currentName;
-    names.push(newName);
-    this.setState({
-      currentOrder: newName,
-      orderNames: names,
-      showNameInput: false,
-      showSizeInput: true,
-      showCoffeeInput: false
-    });
+    if (this.state.endGame !== true) {
+      let names = [...this.state.orderNames];
+      let newName = this.state.currentName;
+      names.push(newName);
+      this.setState({
+        currentOrder: newName,
+        orderNames: names,
+        showNameInput: false,
+        showSizeInput: true,
+        showCoffeeInput: false
+      });
+    }
   };
 
   handleSizeSubmit = () => {
@@ -94,7 +97,8 @@ class App extends Component {
     let randomNameGen = this.state.orderNames[randomNameNumGen];
     this.setState({
       randomName: randomNameGen,
-      randomNameShow: true
+      randomNameShow: true,
+      endGame: true
     });
   };
 
@@ -121,14 +125,14 @@ class App extends Component {
           />
         )}
         <CurrentOrder currentOrder={this.state.currentOrder} />
+        <CompOrders orders={this.state.orders} orderDelete={this.orderDelete} />
         {this.state.randomNameShow ? (
-          <h3>{this.state.randomName}</h3>
+          <h3>{`${this.state.randomName} pays`}</h3>
         ) : (
           <h3 onClick={() => this.handleRandomName()}>
-            Click to choose random name from orders
+            Click to end order and choose who pays
           </h3>
         )}
-        <CompOrders orders={this.state.orders} orderDelete={this.orderDelete} />
       </div>
     );
   }
