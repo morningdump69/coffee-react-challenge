@@ -19,8 +19,15 @@ class App extends Component {
     showCoffeeInput: false,
     randomNameShow: false,
     randomName: "",
-    endGame: false
+    endGame: false,
+    roulette: false
   };
+
+  componentDidUpdate() {
+    if (this.state.orders.length >= 2 && this.state.roulette === false) {
+      this.setState({ roulette: true });
+    }
+  }
 
   handleNameInput = event => {
     let capName = event.target.value.toUpperCase();
@@ -108,7 +115,8 @@ class App extends Component {
       orders: resetOrders,
       randomNameShow: false,
       randomName: "",
-      endGame: false
+      endGame: false,
+      roulette: false
     });
   };
 
@@ -140,12 +148,17 @@ class App extends Component {
         )}
         <CurrentOrder currentOrder={this.state.currentOrder} />
         <CompOrders orders={this.state.orders} orderDelete={this.orderDelete} />
-        {this.state.randomNameShow ? (
-          <h3>{`${this.state.randomName} pays`}</h3>
+
+        {this.state.roulette ? (
+          this.state.randomNameShow ? (
+            <h3>{`${this.state.randomName} pays`}</h3>
+          ) : (
+            <h3 onClick={() => this.handleRandomName()}>
+              Click to end order and choose who pays
+            </h3>
+          )
         ) : (
-          <h3 onClick={() => this.handleRandomName()}>
-            Click to end order and choose who pays
-          </h3>
+          <h3>Add atleast 2 orders for roulette</h3>
         )}
       </div>
     );
